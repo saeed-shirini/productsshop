@@ -1,0 +1,55 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.navbar{
+    background-color: #2f4858;
+    padding:10px 15px;
+}
+.collapse-btn{
+    padding:10px;
+    border:4px;
+    background-color: white;
+    cursor: pointer;
+}
+.collapse-btn i{
+    font-size: 20px;
+}
+.navbar .menu-list{
+    display: none;
+}
+.navbar .menu-list.active{
+    display: block;
+}
+.navbar .menu-list li{
+    list-style: none;
+}
+.navbar .menu-list li a{
+    color:#e2e2e2;
+    text-decoration: none;
+    display: block;
+    padding:15px 0;
+    font-size: 1.5em;
+}
+.navbar .menu-list li:hover{
+    background-color: #43655a;
+    border-radius: 10px;
+}
+.navbar .menu-list li:hover a{
+    color: white;
+}
+
+@media screen and (min-width:590px){
+    .collapse-btn{
+        display: none;
+    }
+    .navbar .menu-list{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+    .navbar .menu-list li a{
+        padding:15px 10px;
+    }
+}
