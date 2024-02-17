@@ -1,20 +1,19 @@
 import {useState} from "react";
 import "./navbar.css";
 import {Link} from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faCartShopping} from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faCartShopping,faBars} from "@fortawesome/free-solid-svg-icons";
 
-function Navbar(){
+function Navbar({orderscount}){
     const [isActive,setIsActive] = useState(false);
     function showMenu(){
         setIsActive(!isActive);
     }
-    let products = localStorage.getItem(JSON.stringify("products"));
-    console.log(products)
+
     return(
         <nav className="navbar">
             <button className="collapse-btn" onClick={showMenu}>
-                <i className="fa fa-bars"></i>
+                <FontAwesomeIcon icon={faBars}/>
             </button>
             <ul className={`menu-list ${isActive && "active"}`}>
                 <div className="left">
@@ -24,7 +23,7 @@ function Navbar(){
                     <li><Link to="/products">products</Link></li>
                 </div>
                 <div className="right">
-                    <li><Link to="/orders"><FontAwesomeIcon icon={faCartShopping}/></Link><span className="order-count"></span></li>
+                    <li><Link to="/orders"><span className="order-count">{orderscount}</span><FontAwesomeIcon icon={faCartShopping}/></Link></li>
                 </div>
             </ul>
         </nav>

@@ -3,6 +3,7 @@
     margin:0;
     box-sizing: border-box;
 }
+
 .navbar{
     background-color: #2f4858;
     padding:10px 15px;
@@ -12,9 +13,13 @@
     border:4px;
     background-color: white;
     cursor: pointer;
+    border-radius: 8px;
 }
-.collapse-btn i{
-    font-size: 20px;
+.collapse-btn:hover{
+    background-color:#F6B17A ;
+}
+.collapse-btn > *{
+    font-size: 18px;
 }
 .navbar .menu-list{
     display: none;
@@ -40,6 +45,19 @@
 .navbar .menu-list li:hover a{
     color: white;
 }
+.navbar .right{
+    width: 16%;
+    text-align: center;
+}
+.navbar .order-count{
+    background-color: #F6B17A;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    color:black;
+    text-align: center;
+}
 
 @media screen and (min-width:590px){
     .collapse-btn{
@@ -57,4 +75,18 @@
         padding:12px;
         margin:0;
     }
+    .navbar .right{
+        width: 6%;
+        text-align: right;
+    }
+    .navbar .order-count{
+        background-color: #F6B17A;
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        color:black;
+        text-align: center;
+    }
+    
 }

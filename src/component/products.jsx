@@ -4,8 +4,9 @@ import ProductCategory from "./ProductCategory";
 import Product from "./Product";
 import "./products.css"
 
-function Products(){
+function Products({setOrders}){
     const [products,setProducts] = useState(JSON.parse(localStorage.getItem("products")) || []);
+    let orderList = products.filter(p => p.count !== 0);
     //const [orders,setOrders] = useState(JSON.parse(localStorage.getItem("orders")) || []);
     let newProducts = [...products];
 
@@ -24,8 +25,9 @@ function Products(){
     },[])
 
     useEffect(()=>{
-        //localStorage.setItem("orders",JSON.stringify(orderList))
-        localStorage.setItem("products",JSON.stringify(products))
+        localStorage.setItem("orders",JSON.stringify(orderList));
+        localStorage.setItem("products",JSON.stringify(products));
+        setOrders(orderList)
     },[products])
 
     let lastCategory = null;

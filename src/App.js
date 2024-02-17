@@ -5,18 +5,22 @@ import Photos from "./component/Photos";
 import Products from "./component/products";
 import Orders from "./component/Orders";
 import "./App.css";
+import {useState} from "react";
 
 function App() {
+    let [orders, setOrders] = useState(JSON.parse(localStorage.getItem("orders")) || []);
 
     return (
         <BrowserRouter>
-            <Navbar />
+            <Navbar orderscount={orders.length}/>
             <Switch>
                 <Route path="/photos" component={Photos} />
                 <Route path="/products">
-                    <Products />
+                    <Products setOrders={setOrders}/>
                 </Route>
-                <Route path="/orders" component={Orders} />
+                <Route path="/orders">
+                    <Orders orders={orders} setOrders={setOrders}/>
+                </Route>
                 <Route path="/" exact component={Home} />
             </Switch>
         </BrowserRouter>

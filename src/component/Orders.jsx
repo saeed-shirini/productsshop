@@ -1,24 +1,24 @@
 import { useEffect } from "react";
 import "./orders.css";
-import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-function Orders() {
-    let [orders, setOrders] = useState(JSON.parse(localStorage.getItem("orders")) || []);
+function Orders({orders,setOrders}) {
     let products = JSON.parse(localStorage.getItem("products"));
     let newProducts = [...products];
     let orderList = products.filter(p => p.count !== 0);
-    let totalPrice;
-    totalPrice = orders.reduce((total, current) => {
+    let totalPrice = orders.reduce((total, current) => {
         return Math.round(total + (current.count * current.price));
     }, 0)
-
+    
     useEffect(() => {
         setOrders(orderList);
     }, [])
 
+    useEffect(()=>{
+        localStorage.setItem("orders",JSON.stringify(orders))
+    },[orders])
 
     return (
         <div className="order-list">
