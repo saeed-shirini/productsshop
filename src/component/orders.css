@@ -1,6 +1,14 @@
+.order-list{
+    max-width: 100%;
+    padding:10px 15px;
+    overflow: auto;
+}
+table.horizontal{
+    display: none;
+}
 table{
     border-collapse: collapse;
-    width:70%;
+    max-width:100%;
     margin:20px auto;
     color:white;
     text-align: center;
@@ -12,10 +20,64 @@ table td{
     background-color: #7077A1;
 }
 table,th,td{
+    /*width:calc(100% - 30px) ;*/
     border:2px solid #F6B17A;
-    padding:20px ;
+    padding:12px ;
+}
+table th ,table td{
+    width: 20%;
 }
 table tr td img{
-    width: 25%;
+    width: 100%;
     height: auto;
+}
+table tr td a button{
+    cursor: pointer;
+    font-size: 22px;
+    padding:8px;
+    border-radius: 5px;
+    background-color: #F6B17A;
+    color:black;
+    margin:0 9px;
+}
+h3.total-price{
+    color:#2D3250;
+    text-align: center;
+}
+h3.total-price span{
+    color:black;
+}
+.order-list .not-exist h2{
+    color:#424769;
+}
+.order-list .not-exist div{
+    margin:20px auto;
+    text-align: center;
+}
+.order-list .not-exist .link{
+    color:#43655a;
+    font-size: 20px;
+    padding:7px;
+}
+.order-list .not-exist .link:hover{
+    color:#F6B17A;
+}
+
+@media only screen and (min-width:600px){
+    table.vertical{
+        display: none;
+    }
+    table.horizontal{
+        display: block;
+        padding:0;
+    }
+    table.horizontal tr td img{
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width:800px){
+    table.horizontal tr td img{
+        width: 60%;
+    }
 }

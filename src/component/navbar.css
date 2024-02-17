@@ -29,8 +29,9 @@
     color:#e2e2e2;
     text-decoration: none;
     display: block;
-    padding:15px 0;
-    font-size: 1.5em;
+    padding:12px 0;
+    font-size: 1.4em;
+    margin:5px 0;
 }
 .navbar .menu-list li:hover{
     background-color: #43655a;
@@ -46,10 +47,14 @@
     }
     .navbar .menu-list{
         display: flex;
-        justify-content: start;
+        justify-content: space-between;
         align-items: center;
     }
+    .navbar .menu-list .left {
+        display: flex;
+    }
     .navbar .menu-list li a{
-        padding:15px 10px;
+        padding:12px;
+        margin:0;
     }
 }

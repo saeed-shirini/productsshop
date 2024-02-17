@@ -5,8 +5,8 @@ import Product from "./Product";
 import "./products.css"
 
 function Products(){
-    const [products,setProducts] = useState([]);
-    const [order,setOrder] = useState([]);
+    const [products,setProducts] = useState(JSON.parse(localStorage.getItem("products")) || []);
+    //const [orders,setOrders] = useState(JSON.parse(localStorage.getItem("orders")) || []);
     let newProducts = [...products];
 
     useEffect(async()=>{
@@ -16,12 +16,17 @@ function Products(){
             d.count = 0;
             return d;
         })
-        setProducts(data);
+        if(JSON.parse(localStorage.getItem("products")).length !== 0){
+            setProducts(JSON.parse(localStorage.getItem("products")));
+        }else{
+            setProducts(data)
+        }
     },[])
 
     useEffect(()=>{
-        handleTotalPrice()
-    },[order])
+        //localStorage.setItem("orders",JSON.stringify(orderList))
+        localStorage.setItem("products",JSON.stringify(products))
+    },[products])
 
     let lastCategory = null;
     let rows = [];
@@ -44,37 +49,39 @@ function Products(){
         })
         findProduct.count += 1;
         setProducts(newProducts)
-        changeBasket(findProduct)
+        //changeBasket(findProduct,"i")
     }
 
     function handleDecrement(id){
         const findProduct = newProducts.find(function(p){
             return p.id === id;
         })
-        let countProduct = findProduct.count === 0 ?  findProduct.count = 0 :  findProduct.count -= 1;
-        setProducts(newProducts)
-        changeBasket(findProduct)
+        if(findProduct.count <= 1){
+            findProduct.count = 0
+        }else{
+            findProduct.count -= 1;
+        }
+       // changeBasket(findProduct,"d")
+        setProducts(newProducts) 
     }
 
-    function changeBasket(product){
-        const findProduct = order.find(o => o.id === product.id);
-        if(!findProduct){
-            setOrder([...order,product])
-        }else{   
-            setOrder([...order])
-        }
+    /*function changeBasket(product,flag){
+        const findProduct = orders.find(o => o.id === product.id);
+        const orderList = products.filter((p) => p.count !== 0);
         if(product.count === 0){
-            const newOrder = order.filter((o) => o.count !== 0);
-            setOrder(newOrder)
+            const newOrder = orders.filter((o) => o.count !== 0);
+            setOrders(newOrder)
         }
-    }
-
-    function handleTotalPrice(){
-        const totalPrice = order.reduce((total,current) => {
-            return Math.round(total + (current.count * current.price));
-        },0)
-        localStorage.setItem("orders",JSON.stringify(order))
-    }
+        if(flag === "i"){
+            if(!findProduct){
+                setOrders([...orders,product])
+            }else{   
+                setOrders(orderList)
+            }
+        }else{
+            setOrders(orderList)
+        }
+    }*/
 }
 
 export default Products;
