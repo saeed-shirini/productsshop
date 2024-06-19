@@ -1,0 +1,101 @@
+ul,li{
+    list-style: none;
+}
+.product-details{
+    padding:10px 15px;
+}
+.product-card{
+    border-radius: 5px;
+    background-color: #2D3250;
+    color:#f8f9fa;
+    text-align: left;
+    width:100%;
+}
+.product-card .product-image{
+    display: none;
+}
+.product-card .product-info {
+    padding: 20px;
+}
+.product-card .product-info h2{
+    font-weight: bold;
+    text-align: center;
+    min-width: 100px;
+}
+.product-card .product-info h3{
+    padding: 20px;
+    color:#F6B17A;
+    text-align: center;
+}
+.product-card .product-info .details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin:30px auto;
+    font-size: 16px;
+    padding:10px;
+}
+.product-card .product-info ul.details li{
+    background-color: #F6B17A;
+    color:black;
+    padding:10px;
+    border-radius: 5px;
+    margin:20px 0;
+}
+.product-card .product-info ul.details li span{
+    margin:0 5px;
+}
+.product-card .product-info p{
+    font-size: 1.2em;
+    line-height: 25px;
+    text-align: center;
+    padding:10px;
+    color:#e2e2e2;
+}
+.product-card .product-info .add-card{
+    text-align: center;
+    padding:15px;
+}
+.product-card .product-info .add-card button{
+    background-color: #F6B17A;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 4px;
+    padding:12px;
+    outline: none;
+    border:none;
+    color:black;
+    margin: 10px;
+}
+
+
+@media only screen and (min-width:768px){
+    .product-card{
+        display: flex;
+        justify-content: space-between;
+        padding:20px;
+    }
+    .product-card .product-image{
+        width:30%;
+        display: block;
+        text-align: center;
+        display: flex;
+        align-items: center;
+    }
+    .product-card .product-image img{
+        width: 100%;
+        border-radius: 5px;
+    }
+    .product-card .product-info {
+        width: 70%;
+        padding: 20px;
+    }
+    .product-card .product-info .details{
+        font-size: 20px;
+    }
+    .product-card .product-info p{
+        font-size: 1.3em;
+        line-height: 30px;
+    }
+}

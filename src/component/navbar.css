@@ -7,6 +7,7 @@
 .navbar{
     background-color: #2f4858;
     padding:10px 15px;
+    color:white;
 }
 .collapse-btn{
     padding:10px;
@@ -46,14 +47,14 @@
     color: white;
 }
 .navbar .right{
-    width: 16%;
-    text-align: center;
+    text-align: left;
+    width: 100%;
 }
 .navbar .order-count{
     background-color: #F6B17A;
     display: inline-block;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     color:black;
     text-align: center;
@@ -76,17 +77,14 @@
         margin:0;
     }
     .navbar .right{
-        width: 6%;
+        display: flex;
+        justify-content: end;
         text-align: right;
     }
     .navbar .order-count{
         background-color: #F6B17A;
         display: inline-block;
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
+        border-radius: 100%;
         color:black;
-        text-align: center;
     }
-    
 }

@@ -1,4 +1,5 @@
 import reactDOM from 'react-dom';
 import App from "./App";
+import Test from "./component/Test"
 
-reactDOM.render(<App/>,document.getElementById("root"))
+reactDOM.render(<Test/>,document.getElementById("root"))

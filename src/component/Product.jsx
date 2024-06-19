@@ -1,6 +1,7 @@
 import {useState} from "react";
-import Products from "./products";
+import {Link} from "react-router-dom";
 const descriptionLength = 100;
+
 
 function Product({product,id,onIncrement,onDecrement}){
     const [isActive,setIsActive] = useState(false);
@@ -11,15 +12,15 @@ function Product({product,id,onIncrement,onDecrement}){
     return(
             <div className="product">
                 <div className="product-image">
-                    <a href="#"><img src={product.image} alt=""/></a>
+                    <Link to={"/products/"+id}><img src={product.image} alt=""/></Link>
                 </div>
                 <h2 className="product-title">
-                    <a href="" alt="">{product.title}</a>
+                    <Link to={"/products/"+id}>{product.title}</Link>
                 </h2>
                 <p className="product-description">
                     {product.description.length >= descriptionLength && !isActive ? sliceDescription : product.description}
                 </p>
-                {product.description.length >= descriptionLength && <button className="continue-btn" onClick={handleClick}>{!isActive ? "continue" : "less"}</button>}
+                {product.description.length >= descriptionLength && <button className="continue-btn none-border-outline" onClick={handleClick}>{!isActive ? "continue" : "less"}</button>}
                 
                 <div className="product-details">
                     <div className="product-price">
@@ -35,7 +36,7 @@ function Product({product,id,onIncrement,onDecrement}){
                     <button onClick={()=>onDecrement(id)}>-</button>
                     <span>{product.count}</span>
                     <button onClick={()=>onIncrement(id)}>+</button>
-                    total Price:{product.count === 0 ? 0 : product.price}
+                    {/*total Price:{product.count === 0 ? 0 : product.price}*/}
                 </div>
             </div>
     )

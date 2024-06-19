@@ -2,7 +2,7 @@ import {useState,useEffect} from "react";
 import axios from "axios";
 import ProductCategory from "./ProductCategory";
 import Product from "./Product";
-import "./products.css"
+import "./products.css";
 
 function Products({setOrders}){
     const [products,setProducts] = useState(JSON.parse(localStorage.getItem("products")) || []);

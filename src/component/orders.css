@@ -39,6 +39,8 @@ table tr td a button{
     background-color: #F6B17A;
     color:black;
     margin:0 9px;
+    border:none;
+    outline: none;
 }
 h3.total-price{
     color:#2D3250;

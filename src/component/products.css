@@ -1,3 +1,7 @@
+.none-border-outline{
+    border: none;
+    outline: none;
+}
 .product-container{
     max-width: 100%;
     padding:10px 15px;
@@ -38,6 +42,7 @@
     font-size: 20px;
     color:black;
     overflow: hidden;
+    opacity: 0.8;
 }
 
 .product .product-details{
@@ -71,6 +76,8 @@
     font-size: 17px;
     border-radius: 4px;
     cursor: pointer;
+    border:none;
+    outline: none;
 }
 .continue-btn{
     background-color: darkgray;
